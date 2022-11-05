@@ -1,0 +1,39 @@
+pipeline{
+     agent any
+    
+     stages {
+  stage('download from repo') {
+    steps {
+      git branch: 'Adianie', url: 'https://github.com/lavoisierbleriot/webapplogin.git'
+    }
+  }
+
+  stage('build an artifact') {
+ 
+    steps {
+      sh 'mvn package'
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
