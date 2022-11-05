@@ -18,7 +18,7 @@ pipeline{
   stage('Deploy to nexus') {
 
     steps {
-      nexusArtifactUploader artifacts: [[artifactId: 'webappAdianie', classifier: 'maven-snapshots', file: '/var/lib/jenkins/workspace/Download and Build artifact/target/webappAdianie.war', type: '**/*.war']], credentialsId: 'admin', groupId: 'com.Adianie', nexusUrl: '3.83.119.169:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'https://github.com/lavoisierbleriot/webapplogin.git', version: '1.0-SNAPSHOT'
+      nexusArtifactUploader artifacts: [[artifactId: '${POM_ARTIFACTID}', classifier: '', file: '/var/lib/jenkins/workspace/Download, build artifact and deploy to nexus/target/webappAdianie.war', type: 'war']], credentialsId: 'admin', groupId: '${POM_GROUPID}', nexusUrl: '3.83.119.169:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '${POM_VERSION}'
     }
   }
 
