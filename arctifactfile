@@ -23,7 +23,18 @@ pipeline{
       }
   }
 
-
+ stage('pull artifact') {
+    steps {
+      sh '''wget  --user=admin --password=Ekoume20@ http://3.92.77.185:8081/repository/maven-snapshots/com/Adianie/webappAdianie/1.0-SNAPSHOT/webappAdianie-1.0-20221105.050503-1.war
+mv webappAdianie-1.0-20221105.050503-1.war   webapp.war'''  
+      
+    }
+  }
+ stage('release artifact to tomcat') {
+    steps {
+     deploy adapters: [tomcat8(credentialsId: 'tomcatrelease', path: '', url: 'http://172.31.22.9:8080')], contextPath: 'tom', onFailure: false, war: '**/*.war'
+    }
+  }
 
 
 
