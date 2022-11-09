@@ -18,14 +18,14 @@ pipeline{
   stage('Deploy to nexus') {
 
     steps {
-          nexusArtifactUploader artifacts: [[artifactId: 'webappAdianie', classifier: '', file: '/var/lib/jenkins/workspace/Download, build artifact and deploy to nexus/target/webappAdianie.war', type: 'war']], credentialsId: 'admin', groupId: 'com.Adianie', nexusUrl: '3.83.119.169:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
+          nexusArtifactUploader artifacts: [[artifactId: 'webappAdianie', classifier: '', file: '/var/lib/jenkins/workspace/Download, build artifact and deploy to nexus/target/webappAdianie.war', type: 'war']], credentialsId: 'admin', groupId: 'com.Adianie', nexusUrl: '172.31.94.208:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
 
       }
   }
 
  stage('pull artifact') {
     steps {
-      sh '''wget  --user=admin --password=Ekoume20@ http://3.92.77.185:8081/repository/maven-snapshots/com/Adianie/webappAdianie/1.0-SNAPSHOT/webappAdianie-1.0-20221105.050503-1.war
+      sh '''wget  --user=admin --password=Ekoume20@ http://172.31.94.208:8081/repository/maven-snapshots/com/Adianie/webappAdianie/1.0-SNAPSHOT/webappAdianie-1.0-20221105.050503-1.war
 mv webappAdianie-1.0-20221105.050503-1.war   webapp.war'''  
       
     }
