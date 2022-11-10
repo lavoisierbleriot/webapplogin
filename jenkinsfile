@@ -26,20 +26,20 @@ pipeline{
       version: '1.0-SNAPSHOT'
     }
   }
-    stage('pull the artifact from nexus to artifactory') {
-           steps {
-        sh '''wget --user=tomcatrelease  --password=Ekoume20@ http://34.201.113.37:8081/repository/maven-snapshots/com/ekoume/webappekoume/1.0-SNAPSHOT/webappekoume-1.0-20221110.122208-1.war
-              mv webappekoume-1.0-20221110.122208-1.war   ekoume.war'''     
-    }
-    }
-    stage('deploy war to tomcat container ') {
-           steps {
-             deploy adapters: [tomcat8(credentialsId: 'tomcatrelease', path: '', 
-             url: 'http://54.82.90.28:8080')], 
-             contextPath: 'tomy',
-              war: 'ekoume.war'
-    }
-    }
+    //stage('pull the artifact from nexus to artifactory') {
+          // steps {
+        //sh '''wget --user=tomcatrelease  --password=Ekoume20@ http://34.201.113.37:8081/repository/maven-snapshots/com/ekoume/webappekoume/1.0-SNAPSHOT/webappekoume-1.0-20221110.122208-1.war
+              //mv webappekoume-1.0-20221110.122208-1.war   ekoume.war'''     
+    //}
+    //}
+   // stage('deploy war to tomcat container ') {
+           //steps {
+           //  deploy adapters: [tomcat8(credentialsId: 'tomcatrelease', path: '', 
+             //url: 'http://54.82.90.28:8080')], 
+            // contextPath: 'tomy',
+              //war: 'ekoume.war'
+    //}
+    //}
 
 
 
