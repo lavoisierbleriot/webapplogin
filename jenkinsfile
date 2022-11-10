@@ -3,14 +3,15 @@ pipeline{
     stages {
         stage('download the code from github') {
            steps {
-      git branch: 'Ekoume', url: 'https://github.com/lavoisierbleriot/webapplogin.git'
+              git branch: 'Ekoume', 
+              url: 'https://github.com/lavoisierbleriot/webapplogin.git'
     }
-  }
+    }
     stage('Build the code to an artifact ') {
            steps {
-      sh 'mvn package'
+             sh 'mvn package'
     }
-  }
+    }
    // stage('Deploy artifact to nexus') {
         //   steps {
       //sh 'mvn package'
@@ -20,21 +21,6 @@ pipeline{
 }
 
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
+
