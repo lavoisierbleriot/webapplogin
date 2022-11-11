@@ -3,27 +3,27 @@ pipeline{
     stages {
         stage('download the code from github') {
            steps {
-              git branch: 'Ekoume', 
-              url: 'https://github.com/lavoisierbleriot/webapplogin.git'
+                git branch: 'Ekoume', 
+                url: 'https://github.com/lavoisierbleriot/webapplogin.git'
     }
     }
-    stage('Build the code to an artifact ') {
+        stage('Build the code to an artifact ') {
            steps {
-             sh 'mvn package'
+                 sh 'mvn package'
     }
     }
-    stage('Deploy artifact to nexus') {
+        stage('Deploy artifact to nexus') {
            steps {
-      nexusArtifactUploader artifacts: [[artifactId: 'webappekoume', 
-      classifier: '', 
-      file: '/var/lib/jenkins/workspace/usedjenkinsfile/target/webappekoume.war', 
-      type: 'war']], 
-      credentialsId: 'admin', 
-      groupId: 'com.ekoume', 
-      nexusUrl: '34.201.113.37:8081', 
-      nexusVersion: 'nexus3', protocol: 'http', 
-      repository: 'maven-snapshots', 
-      version: '1.0-SNAPSHOT'
+                 nexusArtifactUploader artifacts: [[artifactId: 'webappekoume', 
+                 classifier: '', 
+                 file: '/var/lib/jenkins/workspace/usedjenkinsfile/target/webappekoume.war', 
+                 type: 'war']], 
+                 credentialsId: 'admin', 
+                 groupId: 'com.ekoume', 
+                 nexusUrl: '34.201.113.37:8081', 
+                 nexusVersion: 'nexus3', protocol: 'http', 
+                 repository: 'maven-snapshots', 
+                 version: '1.0-SNAPSHOT'
     }
   }
     //stage('pull the artifact from nexus to artifactory') {
