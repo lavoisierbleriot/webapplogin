@@ -20,7 +20,7 @@ pipeline{
                  type: 'war']], 
                  credentialsId: 'admin', 
                  groupId: 'com.ekoume', 
-                 nexusUrl: '34.201.113.37:8081', 
+                 nexusUrl: '18.212.8.15:8081', 
                  nexusVersion: 'nexus3', protocol: 'http', 
                  repository: 'maven-snapshots', 
                  version: '1.0-SNAPSHOT'
